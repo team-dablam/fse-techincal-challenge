@@ -1,4 +1,4 @@
-.PHONY: help setup start stop restart logs logs-fe logs-all test clean
+.PHONY: help setup start stop restart logs logs-fe logs-all clean
 
 # Default target
 help:
@@ -12,7 +12,6 @@ help:
 	@echo "  make logs        Follow backend logs"
 	@echo "  make logs-fe     Follow frontend logs"
 	@echo "  make logs-all    Follow all logs"
-	@echo "  make test        Run backend tests"
 	@echo "  make clean       Remove containers, volumes, and caches"
 	@echo ""
 	@echo "  Windows users: run the docker compose commands directly."
@@ -46,9 +45,6 @@ logs-fe:
 
 logs-all:
 	@docker compose logs -f
-
-test:
-	@docker compose exec backend uv run pytest
 
 clean:
 	@docker compose down -v --remove-orphans
