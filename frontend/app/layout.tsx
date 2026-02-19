@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Article Reputation Analyzer",
-  description: "FSE Technical Challenge — Dablam",
+  description:
+    "FSE Technical Challenge - Analyze the reputation of news articles",
 };
 
 export default function RootLayout({
@@ -39,7 +40,7 @@ export default function RootLayout({
         </header>
         {children}
         <footer className="mt-16 py-6 border-t border-slate-200 text-center text-xs text-slate-400">
-          Dablam FSE Technical Challenge
+          FSE Technical Challenge
         </footer>
         <Toaster richColors position="top-right" />
       </body>
