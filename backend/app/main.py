@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.routes.routes import router
 
@@ -8,6 +9,12 @@ app = FastAPI(
     description="FSE Technical Challenge — reputation analysis API",
     version="0.1.0",
 )
+
+
+@app.exception_handler(NotImplementedError)
+async def not_implemented_handler(request: Request, exc: NotImplementedError) -> JSONResponse:
+    return JSONResponse(status_code=501, content={"detail": "Not implemented"})
+
 
 app.add_middleware(
     CORSMiddleware,
