@@ -39,22 +39,24 @@ async def analyse_article(article_id: str) -> AnalysisResponse:
     #   settings.openai_model  (default: "gpt-4o-mini")
     #
     # === REQUIRED ===
-    # Return an AnalysisResponse (defined in app/models/responses.py):
-    #   - sentiment:          label, score (-1 to 1), confidence
-    #   - entities:           name, type, relationship, sentiment_context
-    #   - themes:             3–5 relevant themes
-    #   - reputation_signals: positive / negative / neutral signal lists
-    #   - significance_score: 0–1 importance rating
-    #   - reasoning:          brief explanation of the overall analysis
+    # Return an AnalysisResponse (defined in app/models/responses.py).
+    #
+    # sentiment          — label ("positive"|"negative"|"neutral"|"mixed"), score (-1 to 1), confidence (0 to 1)
+    # entities           — list of Entity: name, type, relationship to subject, sentiment_context
+    # themes             — 3–5 high-level themes present in the article
+    # reputation_signals — ReputationSignals with positive/negative/neutral lists of ReputationSignal:
+    #                        each signal has: signal (str), evidence (direct quote or paraphrase)
+    # significance_score — 0 to 1, how impactful this article is for the subject's reputation
+    # reasoning          — plain-language explanation of the overall analysis
     #
     # === OPTIONAL EXTENSIONS ===
     # Use the optional fields on AnalysisResponse if you have time:
-    #   - sentiment_breakdown  (e.g. {"business_performance": 0.8, "governance": -0.6})
-    #   - mention_analysis     (mention count, first mention context, patterns)
-    #   - contradictions       (competing perspectives or framing inconsistencies)
-    #   - claims               (specific factual claims made about the subject)
-    #   - source_credibility   (reliability and bias assessment of the publication)
     #
-    # Document your choices in IMPLEMENTATION.md.
+    # sentiment_breakdown  — dict[str, float], e.g. {"governance": -0.6, "business_performance": 0.8}
+    # mention_analysis     — dict, mention count, first mention context, patterns throughout article
+    # contradictions       — list of Contradiction: type, description, evidence dict
+    #                          e.g. {"positive_frame": "...", "negative_frame": "..."}
+    # claims               — list of Claim: claim, evidence (quote), claim_type, significance
+    # source_credibility   — dict, reliability and bias assessment of the publication
 
-    raise NotImplementedError
+    raise NotImplementedError  # remove this line when you implement the function
