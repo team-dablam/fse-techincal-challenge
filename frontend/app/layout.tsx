@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,11 +25,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
-        <header className="border-b px-6 py-4">
-          <h1 className="text-lg font-semibold">Article Reputation Analyzer</h1>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-slate-50`}
+      >
+        <header className="bg-slate-900 px-8 py-4 flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-blue-400" />
+            <span className="text-white font-semibold tracking-tight">
+              Reputation Analyzer
+            </span>
+          </div>
+          <span className="text-slate-500 text-sm"></span>
         </header>
         {children}
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
