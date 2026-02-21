@@ -8,7 +8,7 @@ Keep this short — 5 questions, answers under 200 words total.
 
 _Single call vs multiple calls? How did you get structured output? What tradeoffs did you consider?_
 
-Your answer here.
+I used a single LLM call per article to keep it simple and predictable. I asked the model to return strict JSON that matches the Pydantic schema. I chose this approach after reading that one structured call is easier to control and validate than splitting logic into multiple requests.
 
 ---
 
@@ -16,7 +16,7 @@ Your answer here.
 
 _What can go wrong (malformed JSON, API errors, missing fields) and how does your code handle it?_
 
-Your answer here.
+I handled basic failure cases like missing API key, API errors, and invalid JSON. The LLM call is wrapped in try/except, and I return a clear 502 error if it fails. I also validate the response with Pydantic and retry once if parsing doesn’t work. My main goal was to keep the API stable and not break the UI.
 
 ---
 
@@ -24,7 +24,7 @@ Your answer here.
 
 _What did you choose to display and how? What did you leave out?_
 
-Your answer here.
+I focused on clarity and visual structure. I displayed sentiment with a badge and score, grouped signals into positive/negative/neutral columns, and added a significance bar. I didn’t include optional fields in the UI to avoid clutter and keep it clean.
 
 ---
 
@@ -32,7 +32,7 @@ Your answer here.
 
 _Which optional fields did you skip? What would you improve or extend?_
 
-Your answer here.
+I would implement optional fields like claims and contradictions. I would also improve schema enforcement and maybe cache responses. On the frontend, I’d add collapsible sections for advanced data and better loading/error states.
 
 ---
 
@@ -40,4 +40,4 @@ Your answer here.
 
 _Which articles did you test with? What edge cases did you cover? How did you validate correctness?_
 
-Your answer here.
+I tested the provided articles and added three of my own: positive, negative, and mixed. I checked that the sentiment and signals match the article tone and that results stay consistent across runs. I also verified that the UI handles empty sections correctly.
