@@ -1,7 +1,14 @@
 from fastapi import APIRouter
 
-from app.models.responses import AnalysisResponse
+from app.models.responses import (
+    AnalysisResponse,
+    Sentiment,
+    Entity,
+    ReputationSignals,
+    ReputationSignal,
+)
 from app.services.data_service import get_article_by_id, load_articles
+
 
 router = APIRouter()
 
@@ -29,34 +36,35 @@ async def get_article(article_id: str) -> dict:
 async def analyse_article(article_id: str) -> AnalysisResponse:
     article = get_article_by_id(article_id)
 
-    # TODO: implement your analysis here
-    #
-    # `article` is a dict with:
-    #   id, subject_name, subject_type, title, source, author, published_date, content
-    #
-    # Use settings from app/config/config.py:
-    #   settings.openai_api_key
-    #   settings.openai_model  (default: "gpt-4o-mini")
-    #
-    # === REQUIRED ===
-    # Return an AnalysisResponse (defined in app/models/responses.py).
-    #
-    # sentiment          — label ("positive"|"negative"|"neutral"|"mixed"), score (-1 to 1), confidence (0 to 1)
-    # entities           — list of Entity: name, type, relationship to subject, sentiment_context
-    # themes             — 3–5 high-level themes present in the article
-    # reputation_signals — ReputationSignals with positive/negative/neutral lists of ReputationSignal:
-    #                        each signal has: signal (str), evidence (direct quote or paraphrase)
-    # significance_score — 0 to 1, how impactful this article is for the subject's reputation
-    # reasoning          — plain-language explanation of the overall analysis
-    #
-    # === OPTIONAL EXTENSIONS ===
-    # Use the optional fields on AnalysisResponse if you have time:
-    #
-    # sentiment_breakdown  — dict[str, float], e.g. {"governance": -0.6, "business_performance": 0.8}
-    # mention_analysis     — dict, mention count, first mention context, patterns throughout article
-    # contradictions       — list of Contradiction: type, description, evidence dict
-    #                          e.g. {"positive_frame": "...", "negative_frame": "..."}
-    # claims               — list of Claim: claim, evidence (quote), claim_type, significance
-    # source_credibility   — dict, reliability and bias assessment of the publication
+    subject_name = article.get("subject_name", "Subject")
+    subject_type = article.get("subject_type", "other")
+    title = article.get("title", "")
+    content = article.get("content", "")
 
-    raise NotImplementedError  # remove this line when you implement the function
+    themes = ["public perception", "business performance", "media coverage"]
+
+    neutral_signal = ReputationSignal(
+        signal="General coverage / informational tone",
+        evidence=(title or content[:160] or "No evidence available").strip(),
+    )
+
+    return AnalysisResponse(
+        sentiment=Sentiment(label="neutral", score=0.0, confidence=0.55),
+        entities=[
+            Entity(
+                name=subject_name,
+                type=subject_type if subject_type in {"person", "company"} else "other",
+                relationship="subject",
+                sentiment_context="The article primarily describes the subject without strong sentiment.",
+            )
+        ],
+        themes=themes,
+        reputation_signals=ReputationSignals(
+            positive=[],
+            negative=[],
+            neutral=[neutral_signal],
+        ),
+        significance_score=0.3,
+        reasoning="Placeholder analysis so the UI can render. Next step will replace this with an LLM-powered analysis.",
+    )
+
