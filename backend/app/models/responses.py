@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 # ---------------------------------------------------------------------------
@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 
 class Sentiment(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     label: Literal["positive", "negative", "neutral", "mixed"]
     score: float = Field(
         ...,
@@ -22,6 +23,7 @@ class Sentiment(BaseModel):
 
 
 class Entity(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     name: str
     type: Literal["person", "company", "organisation", "location", "other"]
     relationship: str = Field(
@@ -32,6 +34,7 @@ class Entity(BaseModel):
 
 
 class ReputationSignal(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     signal: str = Field(..., description="The reputation signal, e.g. 'rigorous research approach'")
     evidence: str = Field(
         ..., description="Direct quote or paraphrase from the article that supports this signal"
@@ -39,6 +42,7 @@ class ReputationSignal(BaseModel):
 
 
 class ReputationSignals(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     positive: list[ReputationSignal] = Field(default_factory=list)
     negative: list[ReputationSignal] = Field(default_factory=list)
     neutral: list[ReputationSignal] = Field(default_factory=list)
@@ -50,6 +54,7 @@ class ReputationSignals(BaseModel):
 
 
 class Contradiction(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     type: str = Field(
         ..., description="Category of contradiction, e.g. 'framing', 'factual', 'perspective'"
     )
@@ -61,6 +66,7 @@ class Contradiction(BaseModel):
 
 
 class Claim(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     claim: str = Field(..., description="The specific factual claim made in the article")
     evidence: str = Field(
         ..., description="Direct quote or passage from the article supporting this claim"
@@ -75,6 +81,7 @@ class Claim(BaseModel):
 
 
 class AnalysisResponse(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     # --- Required ---
     sentiment: Sentiment
     entities: list[Entity] = Field(..., description="Key entities mentioned in the article")
@@ -91,23 +98,23 @@ class AnalysisResponse(BaseModel):
     reasoning: str = Field(..., description="Brief explanation of the overall analysis")
 
     # --- Optional extensions ---
-    sentiment_breakdown: dict[str, float] | None = Field(
-        default=None,
-        description="Multi-dimensional sentiment scores, e.g. {'business_performance': 0.8, 'governance': -0.6}",
-    )
-    mention_analysis: dict | None = Field(
-        default=None,
-        description="Subject mention count, first mention context, mention patterns throughout the article",
-    )
-    contradictions: list[Contradiction] | None = Field(
-        default=None,
-        description="Competing perspectives or framing inconsistencies detected in the article",
-    )
-    claims: list[Claim] | None = Field(
-        default=None,
-        description="Specific factual claims made about the subject, with evidence and significance",
-    )
-    source_credibility: dict | None = Field(
-        default=None,
-        description="Assessment of the publication's credibility and potential bias",
-    )
+    # sentiment_breakdown: dict[str, float] | None = Field(
+    #     default=None,
+    #     description="Multi-dimensional sentiment scores, e.g. {'business_performance': 0.8, 'governance': -0.6}",
+    # )
+    # mention_analysis: dict | None = Field(
+    #     default=None,
+    #     description="Subject mention count, first mention context, mention patterns throughout the article",
+    # )
+    # contradictions: list[Contradiction] | None = Field(
+    #     default=None,
+    #     description="Competing perspectives or framing inconsistencies detected in the article",
+    # )
+    # claims: list[Claim] | None = Field(
+    #     default=None,
+    #     description="Specific factual claims made about the subject, with evidence and significance",
+    # )
+    # source_credibility: dict | None = Field(
+    #     default=None,
+    #     description="Assessment of the publication's credibility and potential bias",
+    # )
