@@ -58,5 +58,55 @@
     "author": "Oliver Pryce",
     "published_date": "2024-03-28",
     "content": "Stratos Labs would like you to know that it is doing extraordinarily well. The AI research company, which was founded three years ago with the stated ambition of solving what its founders described as the alignment problem in a commercially viable timeframe, has published four press releases in the past six weeks. Each one announces something. None of them are entirely clear about what.\n\nThe first announced a strategic partnership with an unnamed hyperscale cloud provider, described in the release as a relationship that would accelerate Stratos's path to what the company calls Responsible Superintelligence. The terms of the partnership were not disclosed. Asked whether the partnership involved any financial consideration, a spokesperson said the arrangement was structured in a way that was mutually beneficial to both organisations. Asked whether that meant money had changed hands, the spokesperson said she would follow up. She has not.\n\nThe second press release announced the appointment of a new chief scientific officer, described as a world-leading expert in AI safety whose previous work had appeared in top-tier academic venues. A search of the academic record reveals four publications over six years, two of which are workshop papers at a conference that is generally regarded in the field as non-selective. The new chief scientific officer gave an interview to a technology podcast last week in which he described Stratos's proprietary training methodology as representing a fundamental departure from the existing paradigm. He declined to provide details on the grounds that the methodology was the subject of pending patent applications.\n\nThe third press release announced a seed extension round of undisclosed size, led by an investor the release described as a prominent figure in the deep technology ecosystem. The investor in question appears to operate a small family office with a website that was last updated in 2021.\n\nThe fourth, published last Tuesday, announced that Stratos Labs had achieved what it called a milestone result on an internal benchmark the company developed itself, using evaluation criteria the company has not published, administered by the company's own researchers, with results that have not been independently verified. The release quoted the company's chief executive describing the result as a significant step toward the company's core mission. An independent researcher who reviewed the release for this publication noted that the benchmark appeared designed to measure a capability that Stratos's model is known to perform well on, and suggested that a more informative evaluation would involve standard third-party benchmarks applied by independent assessors. The researcher asked not to be named because, he explained, the AI research community is small and he would prefer not to spend the next several years being described as a hater.\n\nStratos Labs has raised, according to its own figures, approximately eighty million dollars since founding. It employs forty-three people, thirty-one of whom, per the company's website, work in research. Its model, which it calls Axiom, has not been made available to external researchers, journalists, or enterprise customers in any form that would permit independent evaluation. A waitlist for early access has been open since August of last year. People on the waitlist report that they have heard nothing.\n\nThe company's chief executive, who goes by a single name on his professional profiles — Dorian — gave a keynote presentation at a mid-tier AI conference last month in which he outlined a five-year roadmap toward what he described as safe, transformative general intelligence. The roadmap featured a series of stages illustrated with upward-sloping arrows. The axes of the chart were not labelled.\n\nNone of this is necessarily fraudulent. Small AI companies raising modest capital on ambitious claims are, at this point, a sufficiently normal feature of the landscape that they barely register as news. The researchers are probably doing work. The model probably does something. The chief scientific officer presumably knows things about AI.\n\nWhat Stratos Labs has not done, in three years of operation and four press releases in six weeks, is provide any externally verifiable evidence that it is making progress toward the goals it claims to be pursuing. In a field currently characterised by a credibility problem of the first order, that may not be the most dangerous thing a company can do. But it is a reliable indicator of something, and the something it indicates is probably not the Responsible Superintelligence the press releases keep mentioning."
+  },
+  {
+    "id": "article-7",
+    "subject_name": "Aurora Biolabs",
+    "subject_type": "company",
+    "title": "Aurora Biolabs Announces Breakthrough in Alzheimer’s Therapy",
+    "source": "Medical Daily",
+    "author": "Jane Smith",
+    "published_date": "2024-02-15",
+    "content": "Aurora Biolabs achieved unprecedented Phase II results in its Alzheimer’s therapy trials. Experts praised their rigorous research approach and innovative methodology. The company reported a significant improvement in cognitive function among patients compared to placebo, marking a major milestone in medical advancement. Analysts note that if subsequent trials replicate these results, it could transform the Alzheimer's treatment landscape and significantly enhance Aurora Biolabs’ reputation in biotech circles."
+  },
+  {
+    "id": "article-8",
+    "subject_name": "Stratos Labs",
+    "subject_type": "company",
+    "title": "Stratos Labs Publishes Annual Report With Steady Performance",
+    "source": "Financial Review",
+    "author": "Mark Thompson",
+    "published_date": "2024-03-10",
+    "content": "Stratos Labs, an AI research company, released its annual report showing stable revenue and continued progress in AI safety projects. The report included operational updates, personnel changes, and financial summaries. No significant breakthroughs or setbacks were highlighted. Analysts described the report as neutral, noting that the company continues steady work but has not announced developments that materially affect its standing in the AI research community."
+  },
+  {
+    "id": "article-9",
+    "subject_name": "Velocity Motors",
+    "subject_type": "company",
+    "title": "Velocity Motors Delays Launch of Electric SUV",
+    "source": "Automotive Weekly",
+    "author": "Olivia Chen",
+    "published_date": "2024-04-02",
+    "content": "Velocity Motors announced delays in its electric SUV rollout due to supply chain issues and regulatory approvals. Early reviews suggested production was ahead of schedule, but unforeseen parts shortages and safety testing requirements have pushed back delivery timelines. Investors reacted negatively, and social media buzz highlighted frustration from potential customers. Industry analysts warned that while the company remains innovative, these operational setbacks could affect its reputation and market competitiveness."
+  },
+  {
+    "id": "article-10",
+    "subject_name": "LumiCore Energy",
+    "subject_type": "company",
+    "title": "LumiCore Energy Reports Mixed Results for Solar Panel Expansion",
+    "source": "Renewable Tech News",
+    "author": "Eleanor Davis",
+    "published_date": "2024-05-18",
+    "content": "LumiCore Energy recently reported on the expansion of its solar panel production. While some new manufacturing sites have met projected efficiency targets, others have experienced technical difficulties leading to reduced output. Press releases highlighted the positive results, while environmental groups and independent reviewers pointed out the shortcomings. Analysts classify the reporting as mixed, noting both technological promise and operational challenges in the rollout."
+  },
+  {
+    "id": "article-11",
+    "subject_name": "GlowTech",
+    "subject_type": "company",
+    "title": "GlowTech Smart Home Devices Spark Debate Over Privacy",
+    "source": "Consumer Tech Journal",
+    "author": "Samuel Lee",
+    "published_date": "2024-06-05",
+    "content": "GlowTech launched its new line of smart home devices, which received praise for innovative design and ease of use. However, some security experts raised concerns over data privacy and potential vulnerabilities in the devices’ software. Media coverage was polarized, with some outlets focusing on convenience and innovation, while others highlighted potential risks to consumers’ personal information. The article illustrates contradictory perspectives, showing both the benefits and the controversies surrounding GlowTech’s products."
   }
 ]
