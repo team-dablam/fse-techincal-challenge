@@ -8,7 +8,8 @@ Keep this short — 5 questions, answers under 200 words total.
 
 _Single call vs multiple calls? How did you get structured output? What tradeoffs did you consider?_
 
-Your answer here.
+Single call to keep cost low, reduce latency and maintains single context for reasoning across fields.
+Sent the existing pydantic model to send to openAI to get validated, structured JSON output.
 
 ---
 
@@ -16,7 +17,8 @@ Your answer here.
 
 _What can go wrong (malformed JSON, API errors, missing fields) and how does your code handle it?_
 
-Your answer here.
+Added a generic try catch that logs any HTTP errors from API for debugging.
+Pydantic automatically handles validation errors or missing fields, raising exceptions if response doesn't match schema.
 
 ---
 
@@ -24,7 +26,7 @@ Your answer here.
 
 _What did you choose to display and how? What did you leave out?_
 
-Your answer here.
+I chose to display all required fields and use colour coding to highlight positive/negative items.
 
 ---
 
@@ -32,7 +34,8 @@ Your answer here.
 
 _Which optional fields did you skip? What would you improve or extend?_
 
-Your answer here.
+I'd add some unit tests for the api. If adding the optional fields I'd create Pyfantic models for each dictionary, making it easy to pass structured data to OpenAI.
+
 
 ---
 
@@ -40,4 +43,5 @@ Your answer here.
 
 _Which articles did you test with? What edge cases did you cover? How did you validate correctness?_
 
-Your answer here.
+Tested all articles in articles.json, checking for positive and negative reputation signals and checking for confidence score on articles.
+Verified correctness by ensuring structured output matched the Pydantic model.
